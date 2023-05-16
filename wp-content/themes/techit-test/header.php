@@ -8,7 +8,7 @@
  *
  * @package TECHiT-test
  */
-
+$page_id = get_the_ID();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -26,34 +26,41 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'techit-test' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$techit_test_description = get_bloginfo( 'description', 'display' );
-			if ( $techit_test_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $techit_test_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<div class="nav">
+			<div class="site-wrapper">
+				<div class="main_nav_wrapper">
+					<div class="site-branding">
+						<?php the_custom_logo(); ?>
+					</div><!-- .site-branding -->
+			
+					<nav id="site-navigation" class="main-navigation">
+						<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'techit-test' ); ?></button> -->
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+								'container' => 'div',
+								'container_class' => 'nav-buttom-list',
+								'container_id' => 'nav-buttom-list-menu',
+								'items_wrap' => '<ul class="list-menu">%3$s</ul>',
+							)
+						);
+						?>
+					</nav><!-- #site-navigation -->
+					<button class="btn"><a href="#">Contact us</a></button>
+				</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'techit-test' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+				<!-- -->
+				<div class="content-wrapper">
+					<div class="text-content">
+						<h3><?php echo get_field('our_services_head', $page_id); ?></h3>
+						<h1><?php echo get_field('our_services_paragraph', $page_id); ?></h1>
+					</div>
+					<div>
+						<img src="<?php echo get_field('our_services_image', $page_id); ?>" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
 	</header><!-- #masthead -->

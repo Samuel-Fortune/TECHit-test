@@ -10,18 +10,18 @@ $largest-sizing: 36px;
 $extralarge-sizing: 64px;
 
 //Colors
-$primary-color: #ec1f46;
-$secondary-color: #fff;
-$tertiary-color: #0a223d;
-$header-color: #333;
-$footer-text-color: #bdbdbd;
-$main-bg-color: #f5fafe;
+$primary-color: #003333;
+$secondary-color: #EBF5DA;
+$tertiary-color: #1E1E1E;
+$header-color: #414141;
+$footer-text-color: #fff;
+$main-bg-color: #fff;
 
 body {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: Mulish;
+	font-family: 'Nunito', sans-serif;
 	background-color: $main-bg-color;
 }
 
@@ -40,7 +40,6 @@ h2 {
 
 h3 {
 	font-size: $larger-sizing;
-	line-height: 30px;
 }
 
 h4 {
@@ -64,43 +63,6 @@ ul {
 	line-height: $larger-sizing;
 	padding-left: 0;
 	padding-right: 0;
-}
-
-li {
-
-	@extend ul;
-
-	font-style: normal;
-	font-family: Mulish;
-	font-weight: 700;
-	font-size: $medium-sizing;
-
-	a {
-		color: $secondary-color !important;
-	}
-}
-
-.flex {
-	display: flex;
-
-	&.justify-between {
-		justify-content: space-between;
-		width: 100%;
-	}
-
-	&.item-center {
-		align-items: center;
-	}
-
-	&.gap {
-		gap: 18px;
-	}
-}
-
-.button {
-	border: none;
-	cursor: pointer;
-	background: none;
 }
 
 /*
