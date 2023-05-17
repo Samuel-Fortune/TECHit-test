@@ -14,6 +14,9 @@
 		<div class="site-info">
 			<div class="footer-wrapper">
 				<div class="footer-wrap">
+					<div class="line1"></div>
+					<div class="line2"></div>
+					<div class="line3"></div>
 					<div class="first">
 						<h3>I - net World</h3>
 						<?php
